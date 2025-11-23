@@ -3,118 +3,57 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <title>Tata Papel | Arquivos Digitais</title>
 
   <!-- SEO -->
-  <meta name="description" content="Tata Papel - Arquivos Digitais fofos, prontos para imprimir. Adesivos, planners, agendas e muito mais.">
-  
+  <meta name="description" content="Tata Papel - Arquivos Digitais fofos, prontos para imprimir, feitos com carinho para mães, crianças e mulheres.">
+  <meta name="keywords" content="papelaria personalizada, arquivos digitais, adesivos infantis, planners, etiquetas escolares">
+  <meta name="author" content="Tata Papel">
+
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="img/estrela-icon.svg">
+  <link rel="icon" href="images/estrela.png" type="image/png">
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
+  <header>
+    <h1>Tata Papel ✨</h1>
+    <p>Arquivos Digitais fofos e prontos para imprimir</p>
+  </header>
 
-<header>
-  <div class="header-left">
-    <h1 class="logo">Tata Papel</h1>
-  </div>
+  <main>
+    <section id="produtos">
+      <h2>Nossos Arquivos</h2>
+      <div class="grid">
+        <div class="item">
+          <img src="images/produto1.png" alt="Produto 1">
+          <p>Planner Diário</p>
+        </div>
 
-  <nav>
-    <ul>
-      <li><a href="#produtos">Produtos</a></li>
-      <li><a href="#contato">Contato</a></li>
-      <li><a href="#sobre">Sobre</a></li>
-      <li><a href="agenda-2026.html">Agenda 2026</a></li>
-    </ul>
-  </nav>
-</header>
+        <div class="item">
+          <img src="images/produto2.png" alt="Produto 2">
+          <p>Etiquetas Infantis</p>
+        </div>
 
-<!-- Banner -->
-<section class="banner">
-  <video autoplay loop muted playsinline>
-    <source src="img/banner-video.mp4" type="video/mp4">
-  </video>
+        <div class="item">
+          <img src="images/produto3.png" alt="Produto 3">
+          <p>Adesivos Fofo Girl</p>
+        </div>
+      </div>
+    </section>
 
-  <div class="banner-text">
-    <h2>Arquivos Digitais Fofos</h2>
-    <p>Perfeitos para imprimir e presentear.</p>
-  </div>
-</section>
+    <section id="contato">
+      <h2>Contato</h2>
+      <p>WhatsApp: <strong>3199999-9999</strong></p>
+      <p>Instagram: <a href="https://instagram.com/tatapapel" target="_blank">@tatapapel</a></p>
+    </section>
+  </main>
 
-<!-- Produtos -->
-<section id="produtos" class="products">
-  <h2>Nossos Produtos</h2>
-
-  <div class="products-grid">
-
-    <div class="product">
-      <img src="img/produto1.png" alt="Produto 1">
-      <h3>Adesivos Infantis</h3>
-      <p>Arquivos PNG e PDF.</p>
-      <a href="#" class="btn">Ver mais</a>
-    </div>
-
-    <div class="product">
-      <img src="img/produto2.png" alt="Produto 2">
-      <h3>Planners Femininos</h3>
-      <p>Modelos fofos e exclusivos.</p>
-      <a href="#" class="btn">Ver mais</a>
-    </div>
-
-    <div class="product">
-      <img src="img/produto3.png" alt="Produto 3">
-      <h3>Agendas 2026</h3>
-      <p>Layout moderno e minimalista.</p>
-      <a href="agenda-2026.html" class="btn">Abrir</a>
-    </div>
-
-  </div>
-</section>
-
-<!-- Contato -->
-<section id="contato" class="contact">
-  <h2>Contato</h2>
-
-  <form id="contact-form">
-    <label>Nome:</label>
-    <input type="text" name="nome" required>
-
-    <label>Email:</label>
-    <input type="email" name="email" required>
-
-    <label>Mensagem:</label>
-    <textarea name="mensagem" required></textarea>
-
-    <button type="submit">Enviar</button>
-  </form>
-</section>
-
-<!-- Sobre -->
-<section id="sobre" class="about">
-  <h2>Sobre Nós</h2>
-  <p>Tata Papel cria arquivos digitais fofos para imprimir em casa ou usar em projetos personalizados.</p>
-</section>
-
-<footer>
-  <p>© 2025 Tata Papel — Arquivos Digitais</p>
-</footer>
-
-<script>
-  // Busca simples
-  function searchProducts() {
-    let search = document.getElementById("searchInput").value.toLowerCase();
-    let products = document.querySelectorAll(".product");
-
-    products.forEach(p => {
-      let title = p.querySelector("h3").innerText.toLowerCase();
-      p.style.display = title.includes(search) ? "block" : "none";
-    });
-  }
-</script>
-
+  <footer>
+    <p>© 2025 Tata Papel – Todos os direitos reservados.</p>
+  </footer>
 </body>
 </html>
