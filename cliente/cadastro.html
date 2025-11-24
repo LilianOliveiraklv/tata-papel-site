@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <title>Tata Papel | Arquivos Digitais</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Tata Papel - Arquivos digitais fofos, criativos e modernos. Baixe planners, adesivos, capas, agendas e muito mais no estilo candy colors.">
+  <meta name="keywords" content="papelaria digital, arquivos digitais, planners, agendas, adesivos, capas digitais, tata papel">
+  <meta name="author" content="Tata Papel">
+
+  <!-- Open Graph (Facebook, Instagram, Messenger, WhatsApp) -->
+  <meta property="og:title" content="Tata Papel - Arquivos Digitais Fofos">
+  <meta property="og:description" content="Arquivos digitais criativos, delicados e feitos com amor para sua organização.">
+  <meta property="og:image" content="https://tatapapeldigital.com/img/capa-og.jpg">
+  <meta property="og:url" content="https://SEUSITE.com">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Tata Papel - Arquivos Digitais">
+  <meta name="twitter:description" content="Papelaria digital fofa e criativa.">
+  <meta name="twitter:image" content="https://tatapapeldigital.com/img/capa-og.jpg">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../img/estrela-icon.svg">
+</head>
+
+
+<body>
+
+  <!-- 🌸 Faixa rosa de boas-vindas -->
+<div class="top-bar">
+  <p>Oie! Seja bem-vinda 💕 Use o cupom <strong>CHEGUEI10</strong> na sua primeira compra!</p>
+</div>
+
+<!-- 🌸 Cabeçalho principal -->
+<header class="main-header">
+  <div class="header-left">
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Buscar" />
+      <button onclick="searchProducts()">🔍</button>
+    </div>
+  </div>
+
+  
+
+  <div class="header-center">
+    <img src="../img/logo.png" alt="Tata Papel - Logo" class="logo" />
+  </div>
+
+ <div class="header-right">
+
+<!-- Ícone Entrar -->
+<div class="user-login" id="loginArea" onclick="irParaLogin()">
+  <img src="../img/entrar-icon.svg" class="icon-header">
+  <span id="loginTexto">Entrar</span>
+</div>
+
+  <!-- Ícone Sacola / Carrinho -->
+  <div class="cart">
+    <img src="../img/sacola-icon.svg" alt="Carrinho" class="icon-header">
+    <span class="cart-count">0</span>
+  </div>
+
+</div>
+
+</header>
+
+    <!-- 🌸 MENU DE NAVEGAÇÃO -->
+
+<nav class="main-nav">
+  <a href="index.html" class="active">Inicio</a>
+
+    <div class="dropdown">
+    <a >Artes para Caneca</a>
+    <div class="dropdown-content">
+      <a href="caneca.html">Artes para Caneca</a>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <a href="#" >Encadernação</a>
+    <div class="dropdown-content">
+      <a href="html/encadernacao/agendamentos-2026.html">Agenda 2026</a>
+      <a href="#">Planner</a>
+      <a href="#">Cadernos</a>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <a href="editaveis.html">Editáveis</a>
+    <div class="dropdown-content">
+      <a href="cards.html">Cards</a>
+      <a href="convites.html">Convites</a>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <a href="comemorativas.html">Comemorativas</a>
+    <div class="dropdown-content">
+      <a href="datas.html">Datas Especiais</a>
+      <a href="aniversarios.html">Aniversários</a>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <a href="planilhas.html">Planilhas</a>
+    <div class="dropdown-content">
+      <a href="financeiro.html">Financeiro</a>
+      <a href="produtividade.html">Produtividade</a>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <a href="colecoes.html">Coleções</a>
+    <div class="dropdown-content">
+      <a href="floral.html">Coleção Floral</a>
+      <a href="cute.html">Coleção Cute</a>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <a href="outros.html">Outros</a>
+    <div class="dropdown-content">
+      <a href="cartoes.html">Cartões</a>
+      <a href="tags.html">Tags</a>
+    </div>
+  </div>
+</nav>
+
+    <section class="login-container">
+        <h1>Crie sua conta 💗</h1>
+
+        <form id="cadastroForm">
+            <input type="text" id="nomeCadastro" placeholder="Seu nome" required>
+            <input type="email" id="emailCadastro" placeholder="Seu e-mail" required>
+            <input type="password" id="senhaCadastro" placeholder="Crie uma senha" required>
+
+            <button type="submit" class="btn-login">Cadastrar</button>
+        </form>
+
+        <p>Já tem conta? <a href="login.html">Entrar</a></p>
+    </section>
+
+   <script src="../html/login.js"></script>
+</body>
+</html>
