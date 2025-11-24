@@ -1,9 +1,10 @@
-/* Tata Papel - styles.css */
+/* Tata Papel - style.css (cleaned + candy full menu) */
 :root{
-  --primary: #fdfeff;
-  --primary-dark: #cfd0d1;
-  --text: #444444;
-  --soft: #fff7fb;
+--rosa: #ff8ec7; /* principal */
+--lilas: #cdb4ff; /* secundário */
+--amarelo: #ffd166; /* destaque */
+--bg: #fffafc;
+--text: #444;
 }
 
 *{box-sizing:border-box; font-family: 'Segoe UI', Roboto, Arial, sans-serif;}
