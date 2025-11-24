@@ -13,8 +13,9 @@ document.getElementById("loginForm").addEventListener("submit", function(e){
     if(usuarioEncontrado){
         localStorage.setItem("usuarioLogado", JSON.stringify(usuarioEncontrado));
         alert("Login realizado com sucesso 💗");
-        window.location.href = "area-do-cliente.html";
+        window.location.href = "cliente/login.html";
     } else {
         alert("E-mail ou senha incorretos 💛");
     }
 });
+
