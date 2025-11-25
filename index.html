@@ -4,18 +4,19 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-  <title>Tata Papel | Arquivos Digitais</title>
+  <title>Tata Papel | Arquivos Digitais Fofos - Planners, Adesivos e Prints</title>
 
   <!-- SEO -->
-  <meta name="description" content="Tata Papel - Arquivos digitais fofos, criativos e modernos. Baixe planners, adesivos, capas, agendas e muito mais no estilo candy colors.">
-  <meta name="keywords" content="papelaria digital, arquivos digitais, planners, agendas, adesivos, capas digitais, tata papel">
+  <meta name="description" content="Tata Papel - Arquivos digitais fofos, criativos e modernos. Baixe planners, adesivos, capas e agendas no estilo candy colors.">
+  <!-- keywords são inúteis para Google, mantive por compatibilidade -->
+  <meta name="keywords" content="papelaria digital, planners, adesivos, agendas, tata papel">
   <meta name="author" content="Tata Papel">
 
-  <!-- Open Graph (Facebook, Instagram, Messenger, WhatsApp) -->
+  <!-- Open Graph (social preview) - mantenha o mesmo domínio -->
   <meta property="og:title" content="Tata Papel - Arquivos Digitais Fofos">
-  <meta property="og:description" content="Arquivos digitais criativos, delicados e feitos com amor para sua organização.">
-  <meta property="og:image" content="https://tatapapeldigital.com.br/img/capa-og.jpg">
-  <meta property="og:url" content="https://tatapapeldigital.com.br">
+  <meta property="og:description" content="Arquivos digitais criativos, delicados e feitos com amor.">
+  <meta property="og:image" content="https://tatapapel.com.br/img/capa-og.jpg">
+  <meta property="og:url" content="https://tatapapel.com.br">
   <meta property="og:type" content="website">
 
   <!-- Twitter -->
@@ -26,389 +27,162 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="" crossorigin="anonymous">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="img/estrela-icon.svg">
+  <link rel="icon" type="image/svg+xml" href="img/estrela-icon.svg">
+
 </head>
-
-
 <body>
+  <!-- Top bar -->
+  <div class="top-bar" role="region" aria-label="Promoção">
+    <p>Oie! Seja bem-vinda 💕 Use o cupom <strong>CHEGUEI10</strong> na sua primeira compra!</p>
+  </div>
 
-  <!-- 🌸 Faixa rosa de boas-vindas -->
-<div class="top-bar">
-  <p>Oie! Seja bem-vinda 💕 Use o cupom <strong>CHEGUEI10</strong> na sua primeira compra!</p>
-</div>
-
-<!-- 🌸 Cabeçalho principal -->
-<header class="main-header">
-  <div class="header-left">
-    <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Buscar" />
-      <button onclick="searchProducts()">🔍</button>
+  <!-- Header -->
+  <header class="main-header" role="banner">
+    <div class="header-left">
+      <form id="searchForm" class="search-box" role="search" onsubmit="return handleSearch(event)">
+        <label for="searchInput" class="visually-hidden">Buscar produtos</label>
+        <input type="text" id="searchInput" name="q" placeholder="Buscar produtos, ex: planner" />
+        <button type="submit" id="searchButton" aria-label="Buscar">🔍</button>
+      </form>
     </div>
-  </div>
 
-  
-
-  <div class="header-center">
-    <img src="img/logo.png" alt="Tata Papel - Logo" class="logo" />
-  </div>
-
- <div class="header-right">
-
-  <!-- Ícone Entrar -->
-<div class="user-login" id="loginArea" onclick="irParaLogin()">
-  <img src="img/entrar-icon.svg" class="icon-header">
-  <span id="loginTexto">Entrar</span>
-</div>
-
-
-
-  <!-- Ícone Sacola / Carrinho -->
-  <div class="cart">
-    <img src="img/sacola-icon.svg" alt="Carrinho" class="icon-header">
-    <span class="cart-count">0</span>
-  </div>
-
-</div>
-
-</header>
-
-    <!-- 🌸 MENU DE NAVEGAÇÃO -->
-
-<nav class="main-nav">
-  <a href="index.html" class="active">Inicio</a>
-
-  <div class="dropdown">
-    <a href="#" >Artes para Personalizar</a>
-    <div class="dropdown-content">
-      <a href="pages/personalizacao/caneca.html">Artes para Canecas</a>
-      <a href="#">Planner</a>
-      <a href="#">Cadernos</a>
+    <div class="header-center">
+      <a href="index.html"><img src="img/logo.png" alt="Tata Papel - Logo" class="logo" /></a>
     </div>
-  </div>
 
-  <div class="dropdown">
-    <a href="#" >Encadernação</a>
-    <div class="dropdown-content">
-      <a href="pages/encadernacao/agendamentos-2026.html">Agenda 2026</a>
-      <a href="#">Planner</a>
-      <a href="#">Cadernos</a>
+    <div class="header-right">
+      <button class="user-login" id="loginArea" onclick="irParaLogin()" aria-label="Entrar">
+        <img src="img/entrar-icon.svg" class="icon-header" alt="">
+        <span id="loginTexto">Entrar</span>
+      </button>
+
+      <a href="carrinho.html" class="cart" aria-label="Carrinho de compras">
+        <img src="img/sacola-icon.svg" alt="Carrinho" class="icon-header">
+        <span class="cart-count" aria-live="polite">0</span>
+      </a>
     </div>
-  </div>
+  </header>
 
-  <div class="dropdown">
+  <!-- Navigation -->
+  <nav class="main-nav" role="navigation" aria-label="Menu principal">
+    <a href="index.html" class="active">Início</a>
+    <div class="dropdown">
+      <a href="personalizacao.html">Artes para Personalizar</a>
+      <div class="dropdown-content" aria-hidden="true">
+        <a href="pages/personalizacao/caneca.html">Artes para Canecas</a>
+        <a href="pages/personalizacao/planner.html">Planner</a>
+        <a href="pages/personalizacao/cadernos.html">Cadernos</a>
+      </div>
+    </div>
     <a href="editaveis.html">Editáveis</a>
-    <div class="dropdown-content">
-      <a href="cards.html">Cards</a>
-      <a href="convites.html">Convites</a>
-    </div>
-  </div>
-
-  <div class="dropdown">
     <a href="comemorativas.html">Comemorativas</a>
-    <div class="dropdown-content">
-      <a href="datas.html">Datas Especiais</a>
-      <a href="aniversarios.html">Aniversários</a>
-    </div>
-  </div>
-
-  <div class="dropdown">
     <a href="planilhas.html">Planilhas</a>
-    <div class="dropdown-content">
-      <a href="financeiro.html">Financeiro</a>
-      <a href="produtividade.html">Produtividade</a>
-    </div>
-  </div>
-
-  <div class="dropdown">
     <a href="colecoes.html">Coleções</a>
-    <div class="dropdown-content">
-      <a href="floral.html">Coleção Floral</a>
-      <a href="cute.html">Coleção Cute</a>
-    </div>
-  </div>
-
-  <div class="dropdown">
     <a href="outros.html">Outros</a>
-    <div class="dropdown-content">
-      <a href="cartoes.html">Cartões</a>
-      <a href="tags.html">Tags</a>
+  </nav>
+
+  <!-- Hero / Vídeo banner -->
+  <section class="video-banner" aria-label="Banner de apresentação">
+    <div class="video-container">
+      <video autoplay muted loop playsinline class="banner-video" poster="img/banner-poster.jpg">
+        <source src="img/banner-video.mp4" type="video/mp4">
+        Seu navegador não suporta vídeo.
+      </video>
+      <div class="video-overlay">
+        <h1>Arquivos Digitais Fofos para Mamães 💕</h1>
+        <p>Planeje, organize e encante com amor!</p>
+        <a class="cta-btn" href="#produtos">Ver Produtos</a>
+      </div>
     </div>
-  </div>
-</nav>
-
-<!-- 🌸 Banner de vídeo -->
-<section class="video-banner">
-  <div class="video-container">
-    <!-- Aqui vai o seu vídeo fofinho -->
-    <video autoplay muted loop playsinline class="banner-video">
-      <source src="../IMG/banner-video.mp4" type="video/mp4">
-      Seu navegador não suporta vídeo 😢
-    </video>
-    <div class="video-overlay">
-      <h2>Arquivos Digitais Fofos para Mamães 💕</h2>
-      <p>Planeje, organize e encante com amor!</p>
-    </div>
-  </div>
-</section>  
-
-<section class="promo-images">
-  <div class="image-box">
-    <img src="img/imagem1.jpg" alt="Arquivos digitais fofos">
-  </div>
-  <div class="image-box">
-    <img src="img/imagem2.jpg" alt="Materiais para mamães empreendedoras">
-  </div>
-</section>
-
-
-  <section class="hero">
-    <h1>Seja muito bem vindo, coleções de 2026</h1>
-    <p>Arquivos digitais fofos para mamães, professoras e artistas. Comprou, recebeu automático.</p>
-    <a class="cta-btn" href="#produtos">Ver Produtos</a>
   </section>
 
+  <!-- Produtos (estrutura semântica e itens com data-name para busca) -->
+  <main class="container" id="main" role="main">
+    <section class="products" id="produtos" aria-labelledby="h-produtos">
+      <h2 id="h-produtos">Nossos Produtos</h2>
 
+      <div class="product-grid" id="productGrid">
+        <!-- Exemplo de produto -->
+        <article class="product" data-name="planner digital 2026 planner montessori" tabindex="0">
+          <img src="img/planner2026.jpg" alt="Planner Digital 2026 - Capa floral">
+          <h3>Planner Digital 2026</h3>
+          <p class="price">R$ 19,90</p>
+          <a href="https://mpago.la/1xYzAbC" target="_blank" rel="noopener" class="buy-btn">Comprar Planner 2026</a>
+        </article>
 
-    <section class="products">
-  <h2>Nossos Produtos</h2>
-  <div class="product-grid">
+        <article class="product" data-name="kit professora kit escola">
+          <img src="img/kitprofessora.jpg" alt="Kit Professora - Itens imprimíveis">
+          <h3>Kit Professora</h3>
+          <p class="price">R$ 24,90</p>
+          <a href="https://mpago.la/2rWp9Ty" target="_blank" rel="noopener" class="buy-btn">Comprar Kit Professora</a>
+        </article>
 
-    <!-- PRIMEIRA LINHA -->
-    <div class="product">
-      <img src="img/planner2026.jpg" alt="Planner Digital 2026">
-      <h3>Planner Digital 2026</h3>
-      <p>R$ 19,90</p>
-      <a href="https://mpago.la/1xYzAbC" target="_blank" class="buy-btn">Comprar Planner 2026</a>
-    </div>
+        <article class="product" data-name="adesivos fofos adesivos">
+          <img src="img/adesivosfofos.jpg" alt="Adesivos fofos para planner">
+          <h3>Adesivos Fofos</h3>
+          <p class="price">R$ 9,90</p>
+          <a href="https://mpago.la/4XyZcQb" target="_blank" rel="noopener" class="buy-btn">Comprar Adesivos</a>
+        </article>
 
-    <div class="product">
-      <img src="img/kitprofessora.jpg" alt="Kit Professora">
-      <h3>Kit Professora</h3>
-      <p>R$ 24,90</p>
-      <a href="https://mpago.la/2rWp9Ty" target="_blank" class="buy-btn">Comprar Kit Professora</a>
-    </div>
+        <!-- Adicione novos produtos como <article class="product" data-name="termos de busca"> -->
+      </div>
+    </section>
 
-    <div class="product">
-      <img src="img/agendafloral.jpg" alt="Agenda Floral">
-      <h3>Agenda Floral</h3>
-      <p>R$ 15,90</p>
-      <a href="https://mpago.la/3LmNsAB" target="_blank" class="buy-btn">Comprar Agenda Floral</a>
-    </div>
-
-    <!-- SEGUNDA LINHA -->
-    <div class="product">
-      <img src="img/adesivosfofos.jpg" alt="Adesivos Fofos">
-      <h3>Adesivos Fofos</h3>
-      <p>R$ 9,90</p>
-      <a href="https://mpago.la/4XyZcQb" target="_blank" class="buy-btn">Comprar Adesivos</a>
-    </div>
-
-    <div class="product">
-      <img src="img/cartoescoloridos.jpg" alt="Cartões Coloridos">
-      <h3>Cartões Coloridos</h3>
-      <p>R$ 12,90</p>
-      <a href="https://mpago.la/5AxYrCd" target="_blank" class="buy-btn">Comprar Cartões</a>
-    </div>
-
-    <div class="product">
-      <img src="img/papelariafloral.jpg" alt="Papelaria Floral">
-      <h3>Papelaria Floral</h3>
-      <p>R$ 18,90</p>
-      <a href="https://mpago.la/6ByPcEd" target="_blank" class="buy-btn">Comprar Papelaria</a>
-    </div>
-
-        <div class="product">
-      <img src="img/papelariafloral.jpg" alt="Papelaria Floral">
-      <h3>Papelaria Floral</h3>
-      <p>R$ 18,90</p>
-      <a href="https://mpago.la/6ByPcEd" target="_blank" class="buy-btn">Comprar Papelaria</a>
-    </div>
-
-        <div class="product">
-      <img src="img/papelariafloral.jpg" alt="Papelaria Floral">
-      <h3>Papelaria Floral</h3>
-      <p>R$ 18,90</p>
-      <a href="https://mpago.la/6ByPcEd" target="_blank" class="buy-btn">Comprar Papelaria</a>
-    </div>
-
-        <div class="product">
-      <img src="img/papelariafloral.jpg" alt="Papelaria Floral">
-      <h3>Papelaria Floral</h3>
-      <p>R$ 18,90</p>
-      <a href="https://mpago.la/6ByPcEd" target="_blank" class="buy-btn">Comprar Papelaria</a>
-    </div>
-
-        <div class="product">
-      <img src="img/papelariafloral.jpg" alt="Papelaria Floral">
-      <h3>Papelaria Floral</h3>
-      <p>R$ 18,90</p>
-      <a href="https://mpago.la/6ByPcEd" target="_blank" class="buy-btn">Comprar Papelaria</a>
-    </div>
-
-        <div class="product">
-      <img src="img/papelariafloral.jpg" alt="Papelaria Floral">
-      <h3>Papelaria Floral</h3>
-      <p>R$ 18,90</p>
-      <a href="https://mpago.la/6ByPcEd" target="_blank" class="buy-btn">Comprar Papelaria</a>
-    </div>
-
-        <div class="product">
-      <img src="img/papelariafloral.jpg" alt="Papelaria Floral">
-      <h3>Papelaria Floral</h3>
-      <p>R$ 18,90</p>
-      <a href="https://mpago.la/6ByPcEd" target="_blank" class="buy-btn">Comprar Papelaria</a>
-    </div>
-
-        <div class="product">
-      <img src="img/papelariafloral.jpg" alt="Papelaria Floral">
-      <h3>Papelaria Floral</h3>
-      <p>R$ 18,90</p>
-      <a href="https://mpago.la/6ByPcEd" target="_blank" class="buy-btn">Comprar Papelaria</a>
-    </div>
-
-        <div class="product">
-      <img src="img/papelariafloral.jpg" alt="Papelaria Floral">
-      <h3>Papelaria Floral</h3>
-      <p>R$ 18,90</p>
-      <a href="https://mpago.la/6ByPcEd" target="_blank" class="buy-btn">Comprar Papelaria</a>
-    </div>
-
-        <div class="product">
-      <img src="img/papelariafloral.jpg" alt="Papelaria Floral">
-      <h3>Papelaria Floral</h3>
-      <p>R$ 18,90</p>
-      <a href="https://mpago.la/6ByPcEd" target="_blank" class="buy-btn">Comprar Papelaria</a>
-    </div>
-
-  </div>
-</section>
-
-
-  </div>
-</section>
-
-
-  <main class="container">
-    <div class="info-box">
+    <!-- Como funciona -->
+    <section class="info-box" aria-label="Como funciona">
       <strong>Como funciona (bem simples):</strong>
       <ol>
         <li>Escolha o seu arquivo.</li>
         <li>Clique em comprar e finalize o pagamento.</li>
         <li>Depois do pagamento, o arquivo é enviado automaticamente.</li>
       </ol>
-      <p>Pagamento via <strong>Mercado Pago</strong> (simulação neste exemplo). Para integrar real, siga as instruções que vou te ensinar.</p>
-    </div>
-
-    <h2 id="produtos">Os Queridinhos de Vocês</h2>
-    <div class="grid">
-      <div class="card">
-        <img src="img/produto1.png" alt="Produto Exemplo 1">
-        <h3>Kit Floral - Digital</h3>
-        <p>R$ 9,90</p>
-        <button class="buy-btn" onclick="buyProduct(1)">Comprar</button>
-      </div>
-
-      <div class="card">
-        <img src="img/produto1.png" alt="Produto Exemplo 1">
-        <h3>Kit Floral - Digital</h3>
-        <p>R$ 9,90</p>
-        <button class="buy-btn" onclick="buyProduct(1)">Comprar</button>
-      </div>
-
-      <div class="card">
-        <img src="img/produto2.png" alt="Produto Exemplo 2">
-        <h3>Planner Montessori</h3>
-        <p>R$ 12,90</p>
-        <button class="buy-btn" onclick="buyProduct(2)">Comprar</button>
-      </div>
-
-      <div class="card">
-        <img src="../IMG/produto3.png" alt="Produto Exemplo 3">
-        <h3>Convite Festa - Digital</h3>
-        <p>R$ 6,90</p>
-        <button class="buy-btn" onclick="buyProduct(3)">Comprar</button>
-      </div>
-    </div>
-
-    
+      <p>Pagamento via <strong>Mercado Pago</strong>.</p>
+    </section>
   </main>
 
-    <!-- 🌷 Bloco Instagram Tata Papel -->
-<section class="instagram-box">
-  <h3>@tatapapel.digital</h3>
-  <p>✨ 5k Seguidores ✨</p>
-  <a href="https://www.instagram.com/tatapapel.digital" target="_blank" class="insta-btn">
-    <i class="fab fa-instagram"></i> Seguir
-  </a>
-</section>
+  <!-- Instagram -->
+  <section class="instagram-box" aria-label="Instagram da loja">
+    <h3>@tatapapel.digital</h3>
+    <p>✨ 5k Seguidores ✨</p>
+    <a href="https://www.instagram.com/tatapapel.digital" target="_blank" rel="noopener" class="insta-btn" aria-label="Seguir no Instagram">
+      <i class="fab fa-instagram" aria-hidden="true"></i> Seguir
+    </a>
+  </section>
 
+  <!-- Newsletter -->
+  <section class="newsletter" aria-label="Newsletter">
+    <h2>Assine a nossa newsletter</h2>
+    <p>Receba freebies, descontos e novidades no seu e-mail.</p>
 
-  <section class="insta-videos">
-  <h2>✨ Do nosso Instagram ✨</h2>
+    <form id="newsletterForm" class="newsletter-form" action="/newsletter-signup" method="post" novalidate>
+      <label for="email">Seu email aqui *</label>
+      <div class="form-group">
+        <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+        <button type="submit">Assine</button>
+      </div>
+      <small class="form-note">Obrigada por se inscrever 💖</small>
+    </form>
+  </section>
 
-  <div class="insta-grid">
-    <!-- Cole aqui os vídeos do Instagram -->
-    <iframe src="https://www.instagram.com/p/COIS9i1HhR3/embed" frameborder="0" allowfullscreen></iframe>
-    <iframe src="https://www.instagram.com/p/CvZYvC2AEhz/embed" frameborder="0" allowfullscreen></iframe>
-  </div>
-</section>
-
-<div style="margin-top:24px; text-align:center;">
-      <p>Precisa de ajuda? <a class="whatsapp-link" href="javascript:openWhatsApp()">Fale com a Tata no WhatsApp</a></p>
-      <p style="font-size:13px; color:#aaa;">Domínio: tatapapel.com.br</p>
-    </div>
-
-  <section class="newsletter">
-  <h2>Assine a nossa newsletter</h2>
-  <p>
-    Receba nossas novidades, dicas, freebies, descontos exclusivos e outras coisas
-    legais no seu e-mail! Ahh e pode ficar tranquila, pois nós também odiamos spam ;)
-  </p>
-
-  <form class="newsletter-form" action="#" method="post">
-    <label for="email">Seu email aqui *</label>
-    <div class="form-group">
-      <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
-      <button type="submit">Assine</button>
-    </div>
-    <small>Obrigada por se inscrever 💖</small>
-  </form>
-</section>
-
-
-  <footer class="footer">
-    © 2025 Tata Papel Arquivos Digitais — Feito com amor 💗
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div>© 2025 Tata Papel Arquivos Digitais — Feito com amor 💗</div>
+    <div style="font-size:13px; color:#aaa;">Domínio: tatapapel.com.br</div>
   </footer>
 
+  <!-- WhatsApp flutuante -->
+  <a href="https://wa.me/5531971055579" class="whatsapp-float" target="_blank" title="Fale com a Tata no WhatsApp" aria-label="WhatsApp">
+    <img src="img/whatsapp-icon.png" alt="WhatsApp Tata Papel" />
+  </a>
+
+  <!-- Scripts -->
   <script src="script.js"></script>
-  <script src="../cliente/login.js"></script>
-  <script src="../cliente/cadastro.js"></script>
-  
-  
-
-<script>
-  document.getElementById("searchButton").addEventListener("click", function() {
-    let input = document.getElementById("searchInput").value.toLowerCase();
-    let produtos = document.querySelectorAll(".product-item");
-
-    produtos.forEach(produto => {
-      let nome = produto.textContent.toLowerCase();
-      if (nome.includes(input)) {
-        produto.style.display = "block";
-      } else {
-        produto.style.display = "none";
-      }
-    });
-  });
-</script>
-
-<!-- 🌸 Botão WhatsApp flutuante -->
-<a href="https://wa.me/5531971055579" class="whatsapp-float" target="_blank" title="Fale com a Tata Papel 💬">
-  <img src="img/whatsapp-icon.png" alt="WhatsApp Tata Papel" />
-</a>
+  <!-- scripts de cliente (login / cadastro) - ajuste se necessário -->
+  <script src="cliente/login.js"></script>
+  <script src="cliente/cadastro.js"></script>
 
 </body>
 </html>
