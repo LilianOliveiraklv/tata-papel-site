@@ -8,11 +8,10 @@
 
   <!-- SEO -->
   <meta name="description" content="Tata Papel - Arquivos digitais fofos, criativos e modernos. Baixe planners, adesivos, capas e agendas no estilo candy colors.">
-  <!-- keywords são inúteis para Google, mantive por compatibilidade -->
   <meta name="keywords" content="papelaria digital, planners, adesivos, agendas, tata papel">
   <meta name="author" content="Tata Papel">
 
-  <!-- Open Graph (social preview) - mantenha o mesmo domínio -->
+  <!-- Open Graph -->
   <meta property="og:title" content="Tata Papel - Arquivos Digitais Fofos">
   <meta property="og:description" content="Arquivos digitais criativos, delicados e feitos com amor.">
   <meta property="og:image" content="https://tatapapel.com.br/img/capa-og.jpg">
@@ -27,25 +26,25 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="img/estrela-icon.svg">
-
 </head>
+
 <body>
+
   <!-- Top bar -->
-  <div class="top-bar" role="region" aria-label="Promoção">
+  <div class="top-bar">
     <p>Oie! Seja bem-vinda 💕 Use o cupom <strong>CHEGUEI10</strong> na sua primeira compra!</p>
   </div>
 
   <!-- Header -->
-  <header class="main-header" role="banner">
+  <header class="main-header">
     <div class="header-left">
-      <form id="searchForm" class="search-box" role="search" onsubmit="return handleSearch(event)">
-        <label for="searchInput" class="visually-hidden">Buscar produtos</label>
-        <input type="text" id="searchInput" name="q" placeholder="Buscar produtos, ex: planner" />
-        <button type="submit" id="searchButton" aria-label="Buscar">🔍</button>
+      <form id="searchForm" class="search-box" onsubmit="return handleSearch(event)">
+        <input type="text" id="searchInput" placeholder="Buscar produtos, ex: planner" />
+        <button type="submit">🔍</button>
       </form>
     </div>
 
@@ -54,24 +53,25 @@
     </div>
 
     <div class="header-right">
-      <button class="user-login" id="loginArea" onclick="irParaLogin()" aria-label="Entrar">
+      <a href="cliente/login.html" class="user-login" id="loginArea">
+
         <img src="img/entrar-icon.svg" class="icon-header" alt="">
         <span id="loginTexto">Entrar</span>
       </button>
 
-      <a href="carrinho.html" class="cart" aria-label="Carrinho de compras">
+      <a href="carrinho.html" class="cart">
         <img src="img/sacola-icon.svg" alt="Carrinho" class="icon-header">
-        <span class="cart-count" aria-live="polite">0</span>
+        <span class="cart-count">0</span>
       </a>
     </div>
   </header>
 
   <!-- Navigation -->
-  <nav class="main-nav" role="navigation" aria-label="Menu principal">
+  <nav class="main-nav">
     <a href="index.html" class="active">Início</a>
     <div class="dropdown">
       <a href="personalizacao.html">Artes para Personalizar</a>
-      <div class="dropdown-content" aria-hidden="true">
+      <div class="dropdown-content">
         <a href="pages/personalizacao/caneca.html">Artes para Canecas</a>
         <a href="pages/personalizacao/planner.html">Planner</a>
         <a href="pages/personalizacao/cadernos.html">Cadernos</a>
@@ -84,103 +84,116 @@
     <a href="outros.html">Outros</a>
   </nav>
 
-  <!-- Hero / Vídeo banner -->
-  <section class="video-banner" aria-label="Banner de apresentação">
-    <div class="video-container">
-      <video autoplay muted loop playsinline class="banner-video" poster="img/banner-poster.jpg">
-        <source src="img/banner-video.mp4" type="video/mp4">
-        Seu navegador não suporta vídeo.
-      </video>
-      <div class="video-overlay">
-        <h1>Arquivos Digitais Fofos para Mamães 💕</h1>
-        <p>Planeje, organize e encante com amor!</p>
-        <a class="cta-btn" href="#produtos">Ver Produtos</a>
-      </div>
+  <!-- SLIDER -->
+  <section class="slider">
+    <div class="slides" id="slides">
+      <img src="img/banner-poster.jpg" alt="Banner Tata Papel">
+      <img src="img/banner-poster1.jpg" alt="Banner Tata Papel 1">
+      <img src="img/banner-poster2.jpg" alt="Banner Tata Papel 2">
     </div>
+
+    <button class="slider-btn prev" onclick="moveSlide(-1)">❮</button>
+    <button class="slider-btn next" onclick="moveSlide(1)">❯</button>
   </section>
 
-  <!-- Produtos (estrutura semântica e itens com data-name para busca) -->
-  <main class="container" id="main" role="main">
-    <section class="products" id="produtos" aria-labelledby="h-produtos">
-      <h2 id="h-produtos">Nossos Produtos</h2>
+  <!-- Main -->
+  <main class="container" id="main">
+
+    <section class="products" id="produtos">
+      <h2>Nossos Produtos</h2>
 
       <div class="product-grid" id="productGrid">
-        <!-- Exemplo de produto -->
-        <article class="product" data-name="planner digital 2026 planner montessori" tabindex="0">
-          <img src="img/planner2026.jpg" alt="Planner Digital 2026 - Capa floral">
+
+        <article class="product" data-id="planner2026" data-name="Planner Digital 2026" data-price="19.90">
+          <img src="img/planner2026.jpg" alt="Planner Digital 2026">
           <h3>Planner Digital 2026</h3>
           <p class="price">R$ 19,90</p>
-          <a href="https://mpago.la/1xYzAbC" target="_blank" rel="noopener" class="buy-btn">Comprar Planner 2026</a>
+          <button class="add-to-cart">Adicionar à sacola</button>
         </article>
 
-        <article class="product" data-name="kit professora kit escola">
-          <img src="img/kitprofessora.jpg" alt="Kit Professora - Itens imprimíveis">
+        <article class="product">
+          <img src="img/kitprofessora.jpg" alt="Kit Professora">
           <h3>Kit Professora</h3>
           <p class="price">R$ 24,90</p>
-          <a href="https://mpago.la/2rWp9Ty" target="_blank" rel="noopener" class="buy-btn">Comprar Kit Professora</a>
+          <a href="https://mpago.la/2rWp9Ty" target="_blank" class="buy-btn">Comprar Kit Professora</a>
         </article>
 
-        <article class="product" data-name="adesivos fofos adesivos">
-          <img src="img/adesivosfofos.jpg" alt="Adesivos fofos para planner">
+        <article class="product">
+          <img src="img/adesivosfofos.jpg" alt="Adesivos fofos">
           <h3>Adesivos Fofos</h3>
           <p class="price">R$ 9,90</p>
-          <a href="https://mpago.la/4XyZcQb" target="_blank" rel="noopener" class="buy-btn">Comprar Adesivos</a>
+          <a href="https://mpago.la/4XyZcQb" target="_blank" class="buy-btn">Comprar Adesivos</a>
         </article>
 
-        <!-- Adicione novos produtos como <article class="product" data-name="termos de busca"> -->
       </div>
     </section>
 
-    <!-- Como funciona -->
-    <section class="info-box" aria-label="Como funciona">
-      <strong>Como funciona (bem simples):</strong>
+    <section class="info-box">
+      <strong>Como funciona:</strong>
       <ol>
-        <li>Escolha o seu arquivo.</li>
-        <li>Clique em comprar e finalize o pagamento.</li>
-        <li>Depois do pagamento, o arquivo é enviado automaticamente.</li>
+        <li>Escolha o arquivo.</li>
+        <li>Pague via Mercado Pago.</li>
+        <li>Receba automaticamente.</li>
       </ol>
-      <p>Pagamento via <strong>Mercado Pago</strong>.</p>
     </section>
+
   </main>
 
   <!-- Instagram -->
-  <section class="instagram-box" aria-label="Instagram da loja">
+  <section class="instagram-box">
     <h3>@tatapapel.digital</h3>
     <p>✨ 5k Seguidores ✨</p>
-    <a href="https://www.instagram.com/tatapapel.digital" target="_blank" rel="noopener" class="insta-btn" aria-label="Seguir no Instagram">
-      <i class="fab fa-instagram" aria-hidden="true"></i> Seguir
+    <a href="https://www.instagram.com/tatapapel.digital" target="_blank" class="insta-btn">
+      <i class="fab fa-instagram"></i> Seguir
     </a>
   </section>
 
   <!-- Newsletter -->
-  <section class="newsletter" aria-label="Newsletter">
-    <h2>Assine a nossa newsletter</h2>
-    <p>Receba freebies, descontos e novidades no seu e-mail.</p>
+  <section class="newsletter">
+    <h2>Assine a newsletter</h2>
+    <p>Receba freebies e novidades.</p>
 
-    <form id="newsletterForm" class="newsletter-form" action="/newsletter-signup" method="post" novalidate>
-      <label for="email">Seu email aqui *</label>
+    <form id="newsletterForm" class="newsletter-form" novalidate>
+      <label for="email">Seu email *</label>
       <div class="form-group">
         <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
         <button type="submit">Assine</button>
       </div>
-      <small class="form-note">Obrigada por se inscrever 💖</small>
     </form>
   </section>
 
   <!-- Footer -->
-  <footer class="footer" role="contentinfo">
+  <footer class="footer">
     <div>© 2025 Tata Papel Arquivos Digitais — Feito com amor 💗</div>
     <div style="font-size:13px; color:#aaa;">Domínio: tatapapel.com.br</div>
   </footer>
 
-  <!-- WhatsApp flutuante -->
-  <a href="https://wa.me/5531971055579" class="whatsapp-float" target="_blank" title="Fale com a Tata no WhatsApp" aria-label="WhatsApp">
+  <!-- WhatsApp -->
+  <a href="https://wa.me/5531971055579" class="whatsapp-float" target="_blank">
     <img src="img/whatsapp-icon.png" alt="WhatsApp Tata Papel" />
   </a>
 
   <!-- Scripts -->
+  <script>
+    let index = 0;
+    const slides = document.getElementById('slides');
+    const totalSlides = slides.children.length;
+
+    function showSlide() {
+      slides.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    function moveSlide(n) {
+      index = (index + n + totalSlides) % totalSlides;
+      showSlide();
+    }
+
+    setInterval(() => {
+      moveSlide(1);
+    }, 4000);
+  </script>
+
   <script src="script.js"></script>
-  <!-- scripts de cliente (login / cadastro) - ajuste se necessário -->
   <script src="cliente/login.js"></script>
   <script src="cliente/cadastro.js"></script>
 
