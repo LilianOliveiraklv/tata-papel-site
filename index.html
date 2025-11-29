@@ -40,31 +40,40 @@
   </div>
 
   <!-- Header -->
-  <header class="main-header">
-    <div class="header-left">
-      <form id="searchForm" class="search-box" onsubmit="return handleSearch(event)">
-        <input type="text" id="searchInput" placeholder="Buscar produtos, ex: planner" />
-        <button type="submit">🔍</button>
-      </form>
-    </div>
+<header class="main-header">
 
-    <div class="header-center">
-      <a href="index.html"><img src="img/logo.png" alt="Tata Papel - Logo" class="logo" /></a>
-    </div>
+  <!-- ESQUERDA: BUSCA -->
+  <div class="header-left">
+    <form id="searchForm" class="search-box" onsubmit="return handleSearch(event)">
+      <input type="text" id="searchInput" placeholder="Buscar produtos, ex: planner" />
+      <button type="submit">🔍</button>
+    </form>
+  </div>
 
-    <div class="header-right">
-      <a href="cliente/login.html" class="user-login" id="loginArea">
+  <!-- CENTRO: LOGO -->
+  <div class="header-center">
+    <a href="index.html">
+      <img src="img/logo.png" alt="Tata Papel - Logo" class="logo">
+    </a>
+  </div>
 
-        <img src="img/entrar-icon.svg" class="icon-header" alt="">
-        <span id="loginTexto">Entrar</span>
-      </button>
+  <!-- DIREITA: LOGIN + CARRINHO -->
+  <div class="header-right">
 
-      <a href="carrinho.html" class="cart">
-        <img src="img/sacola-icon.svg" alt="Carrinho" class="icon-header">
-        <span class="cart-count">0</span>
-      </a>
-    </div>
-  </header>
+    <a href="cliente/login.html" class="user-login" id="loginArea">
+      <img src="img/entrar-icon.svg" class="icon-header" alt="Entrar">
+      <span id="loginTexto">Entrar</span>
+    </a>
+
+    <a href="carrinho.html" class="cart">
+      <img src="img/sacola-icon.svg" alt="Carrinho" class="icon-header">
+      <span class="cart-count">0</span>
+    </a>
+
+  </div>
+
+</header>
+
 
   <!-- Navigation -->
   <nav class="main-nav">
